@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Page</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    background-color: #e0f7fa;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .profile h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .profile p {
+    font-size: 14px;
+    color: #555;
+  }
+
+  nav button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #26a69a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .order-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  .order-details th, .order-details td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .order-details th {
+    background-color: #26a69a;
+    color: #fff;
+  }
+
+  .order-details img {
+    width: 50px;
+  }
+
+  .checkout {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #26a69a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  .best-seller {
+    margin-top: 20px;
+  }
+
+  .best-seller h3 {
+    margin-bottom: 10px;
+  }
+
+  .carousel {
+    display: flex;
+    align-items: center;
+  }
+
+  .carousel img {
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+  }
+
+  .carousel button {
+    background-color: #26a69a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+
+  .order-summary {
+    width: 100%;
+    padding: 20px;
+    background-color: #156f6f;
+    color: #fffffd;
+  }
+
+  .order-summary h4 {
+    margin-bottom: 20px;
+  }
+
+  .summary-items {
+    margin-bottom: 20px;
+  }
+
+  .summary-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .summary-item img {
+    width: 50px;
+  }
+
+  .totals p {
+    margin-bottom: 10px;
+  }
+
+  .payment-methods h4 {
+    margin-bottom: 10px;
+  }
+
+  .payment-methods label {
+    margin-right: 20px;
+  }
+
+  .place-order {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #26a69a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    .sidebar {
+      width: 20%;
+    }
+
+    .main-content {
+      width: 50%;
+    }
+
+    .order-summary {
+      width: 30%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      flex-wrap: nowrap;
+    }
+
+    .sidebar {
+      text-align: left;
+    }
+
+    .profile {
+      text-align: center;
+    }
+
+    .main-content {
+      padding: 40px;
+    }
+  }
+</style>
+<body>
+<section id="Hero_menu">
+  <header>
+    <img src="../Assets/logo.svg" alt="logo">
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./Menu.html">Menu</a>
+      <a href="./Contact.html">Contact</a>
+      <a href="./About.html">About Us</a>
+    </nav>
+  </header>
+  <h1>MENU</h1>
+</section>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="profile">
+      <img src="../Assets/logo.svg" alt="Profile Picture">
+      <h2>Zara Lily Cruz</h2>
+      <p>Customer</p>
+    </div>
+    <nav style="display: flex; flex-direction: column">
+      <button>Menu</button>
+      <button>Delivery</button>
+      <button>Information</button>
+      <button>Log out</button>
+    </nav>
+  </div>
+  <div class="main-content">
+    <div class="order-details">
+      <table>
+        <thead>
+        <tr>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Total Price</th>
+        </tr>
+        </thead>
+        <tbody id="cart-items">
+        </tbody>
+      </table>
+      <button class="checkout">Check Out</button>
+    </div>
+
+  </div>
+  <div class="order-summary">
+    <h4>Order ID: 5907653</h4>
+    <div class="summary-items" id="summary-items">
+    </div>
+    <div class="totals">
+      <p id="subtotal">Subtotal: 0.00</p>
+      <p id="tax">Tax: 0.00</p>
+      <p id="total">Total: 0.00</p>
+    </div>
+    <div class="payment-methods">
+      <h4>Payment Methods</h4>
+      <input type="radio" name="payment" id="card" checked>
+      <label for="card">Card</label><br>
+      <input type="radio" name="payment" id="paypal">
+      <label for="paypal">PayPal</label><br>
+      <input type="radio" name="payment" id="cash">
+      <label for="cash">Cash</label><br>
+    </div>
+    <button class="place-order">Place Order</button>
+  </div>
+</div>
+<script >
+  document.addEventListener('DOMContentLoaded', () => {
+    const cartItemsElement = document.getElementById('cart-items');
+    const summaryItemsElement = document.getElementById('summary-items');
+    const subtotalElement = document.getElementById('subtotal');
+    const taxElement = document.getElementById('tax');
+    const totalElement = document.getElementById('total');
+
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+    let products = [
+      {
+        id: 0,
+        name: 'Tonsure Meal',
+        price: 170,
+        img: '../Assets/mail3.svg'
+      },
+      {
+        id: 1,
+        name: 'Tonsure Meal',
+        price: 170,
+        img: '../Assets/mail.svg'
+      },
+      {
+        id: 2,
+        name: 'Tonsure Meal',
+        price: 170,
+        img: '../Assets/produc1.svg'
+      },
+      {
+        id: 3,
+        name: 'Tonsure Meal',
+        price: 170,
+        img: '../Assets/product2.svg'
+      },
+      {
+        id: 4,
+        name: 'Tonsure Meal',
+        price: 170,
+        img: '../Assets/drink1.svg'
+      },
+      {
+        id: 5,
+        name: 'Tonsure Meal',
+        price: 170,
+        img: '../Assets/drink2.svg'
+      },
+      {
+        id: 6,
+        name: 'Tonsure Meal',
+        price: 170,
+        img: '../Assets/drink3.svg'
+      },
+      {
+        id: 7,
+        name: 'Tonsure Meal',
+        price: 170,
+        img: '../Assets/drink4.svg'
+      }
+    ];
+
+    function updateCart() {
+      cartItemsElement.innerHTML = '';
+      summaryItemsElement.innerHTML = '';
+      let subtotal = 0;
+
+      for (let id in cartItems) {
+        let product = products.find(p => p.id == id);
+        let qty = cartItems[id];
+        let totalPrice = product.price * qty;
+        subtotal += totalPrice;
+
+        let cartItemRow = document.createElement('tr');
+        cartItemRow.innerHTML = `
+        <td><img src="${product.img}" alt="${product.name}"></td>
+        <td><input type="number" value="${qty}" data-id="${id}" class="qty-input"></td>
+        <td>${product.price.toFixed(2)}</td>
+        <td>${totalPrice.toFixed(2)}</td>
+      `;
+        cartItemsElement.appendChild(cartItemRow);
+
+        let summaryItem = document.createElement('div');
+        summaryItem.className = 'summary-item';
+        summaryItem.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <p>${totalPrice.toFixed(2)}</p>
+      `;
+        summaryItemsElement.appendChild(summaryItem);
+      }
+
+      let tax = subtotal * 0.1; // 10% tax
+      let total = subtotal + tax;
+
+      subtotalElement.textContent = `Subtotal: ${subtotal.toFixed(2)}`;
+      taxElement.textContent = `Tax: ${tax.toFixed(2)}`;
+      totalElement.textContent = `Total: ${total.toFixed(2)}`;
+    }
+
+    updateCart();
+
+    cartItemsElement.addEventListener('change', (event) => {
+      if (event.target.classList.contains('qty-input')) {
+        let id = event.target.getAttribute('data-id');
+        let newQty = parseInt(event.target.value);
+        if (newQty > 0) {
+          cartItems[id] = newQty;
+        } else {
+          delete cartItems[id];
+        }
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateCart();
+      }
+    });
+  });
+
+</script>
+<footer class="footer">
+  <div class="footer-left">
+     <h2>Make Your life Tasty!</h>
+   
+  </div>
+  <div class="footer-right">
+      <div class="footer-column">
+          <h3>About</h3>
+          <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Corporate Sale</a></li>
+              <li><a href="#">Terms & Policy</a></li>
+              <li><a href="#">Community</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Term & Conditions</a></li>
+              <li><a href="#">Help & Support</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h3>Contact</h3>
+          <ul>
+              <li><a href="#">Call Centre</a></li>
+              <li><a href="#">Email Us</a></li>
+              <li><a href="#">Term & Conditions</a></li>
+              <li><a href="#">Help Center</a></li>
+          </ul>
+      </div>
+  </div>
+</footer>
+</body>
+</html>

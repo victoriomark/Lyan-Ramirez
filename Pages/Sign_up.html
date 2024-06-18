@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://kit.fontawesome.com/d4532539ca.js" crossorigin="anonymous"></script>
+  <title>Contact</title>
+  <style>
+    .body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form{
+      /* From https://css.glass */
+      background: rgba(255, 255, 255, 0.21);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.27);
+      width: 30%;
+    }
+    a{
+      color: #fffffd;
+    }
+  </style>
+</head>
+<body id="body" class="body">
+<form class="form">
+  <nav>
+    <h1>Sign Up</h1>
+  </nav>
+  <div class="input_con">
+    <label for="Name">Name</label>
+    <input id="Name" type="text" placeholder="Name">
+  </div>
+
+  <div  class="input_con">
+    <label for="UserName">UserName</label>
+    <input id="UserName" type="text" placeholder="UserName">
+  </div>
+
+  <div  class="input_con">
+    <label for="Password">Password</label>
+    <input id="Password" type="password" placeholder="Password">
+  </div>
+
+  <div  class="input_con">
+    <label for="Email">Message</label>
+    <input id="Email" type="email" placeholder="Email">
+  </div>
+  <button>Sign Up</button>
+  <br>
+  <div style="display: flex; gap: 5px; align-items: center;">
+    <p>Already Account</p>
+    <a href="./Sign_in.html">Sign In</a>
+  </div>
+
+
+</form>
+
+</body>
+</html>
