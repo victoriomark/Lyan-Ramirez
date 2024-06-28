@@ -15,7 +15,6 @@
       align-items: center;
     }
     .form{
-      /* From https://css.glass */
       background: rgba(255, 255, 255, 0.21);
       border-radius: 16px;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -30,30 +29,25 @@
   </style>
 </head>
 <body id="body" class="body">
-<form class="form">
+<form class="form" onsubmit="login(event)">
   <nav>
     <h1>Sign In</h1>
-
   </nav>
-
-  <div  class="input_con">
+  <div class="input_con">
     <label for="UserName">UserName</label>
-    <input id="UserName" type="text" placeholder="UserName">
+    <input id="UserName" type="text" placeholder="UserName" required>
   </div>
-
-  <div  class="input_con">
+  <div class="input_con">
     <label for="Password">Password</label>
-    <input id="Password" type="password" placeholder="Password">
+    <input id="Password" type="password" placeholder="Password" required>
   </div>
-<button>Login</button>
+  <button type="submit">Login</button>
   <br>
   <div style="display: flex; gap: 5px; align-items: center;">
-    <p>Don't Hove Account</p>
+    <p>Don't have an account?</p>
     <a href="./Sign_up.html">Create Account</a>
   </div>
-
-
 </form>
-
+<script src="./auth.js"></script>
 </body>
 </html>
